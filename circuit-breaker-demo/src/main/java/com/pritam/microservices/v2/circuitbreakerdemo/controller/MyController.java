@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 
 @RestController
 public class MyController {
@@ -13,7 +13,7 @@ public class MyController {
 	private Logger logger = LoggerFactory.getLogger(MyController.class);
 	
 	@GetMapping("/myapi-1")
-	@RateLimiter(name="myapi1")
+	@Bulkhead(name="myapi1")
 	public String myApi1() {
 		logger.info("====INSIDE MY API 1====");
 		return "This is my Api 1";
