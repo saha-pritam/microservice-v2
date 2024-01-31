@@ -1,22 +1,7 @@
 spring:
   application:
     name: api-gateway
-    
-  cloud:
-    gateway:
-      routes:
-      - id: currency-exchange
-        uri: lb://currency-exchange-service
-        predicates:
-        - Path=/currency-exchange/**
-       
-      - id: currency-calculation
-        uri: lb://currency-calculation-service
-        predicates:
-        - Path=/currency-converter/**
-          
-
-    
+        
 server:
   port: 8765
   
