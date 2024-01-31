@@ -2,6 +2,14 @@ spring:
   application:
     name: api-gateway
     
+  cloud:
+    gateway:
+      routes:
+      - id: currency-exchange
+        uri: lb://currency-exchange-service
+        predicates:
+        - Path=/currency-exchange/**
+    
 server:
   port: 8765
   
@@ -12,3 +20,4 @@ eureka:
       
   instance:
     prefer-ip-address: true
+    
